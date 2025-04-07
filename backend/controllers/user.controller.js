@@ -128,11 +128,10 @@ export const updateProfile = async (req, res) => {
     
     let skillsArray;
     if(skills){
-        skillsArray = skills.split(",").map((skill) => skill.trim());
+        skillsArray = skills.split(",");
     }
     
-    const userId = req.user.id;
-
+    const userId = req.id;
     let user = await User.findById(userId);
     if (!user) {
       return res
